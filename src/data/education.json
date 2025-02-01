@@ -1,0 +1,45 @@
+{
+  "education": [
+    {
+      "school": "Virginia Tech",
+      "location": "Blacksburg, VA, USA",
+      "program": "3rd Year – Electrical Engineering",
+      "period": "2013-2014",
+      "logo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.XhhOTj4LQRRxULqzrqS2nwHaEK%26pid%3DApi&f=1&ipt=800548eada6950d8bb1a24537e6d32ca34c0a5d3da69db630f814b99dd113191&ipo=images",
+      "website": "www.vt.edu"
+    },
+    {
+      "school": "École Supérieure Polytechnique (ESP)",
+      "location": "Dakar, Senegal",
+      "program": "Bachelor of Science in Electrical Engineering",
+      "period": "2016-2018",
+      "logo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.UJlNEybfkbqXzkJrO8JW-gHaHa%26pid%3DApi&f=1&ipt=801b866b13b00a213db38e17f4f73582212d08afa5e62a22143bcbd77f3865a6&ipo=images",
+      "website": "www.esp.sn"
+    },
+    {
+      "school": "EDACY",
+      "location": "Dakar, Senegal",
+      "program": "Mobile Development",
+      "certificate": "Mobile Development",
+      "period": "2019-2020",
+      "logo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.4GN7KhNs-HN77VxxIo7HmAAAAA%26pid%3DApi&f=1&ipt=b37b6306753da3940cc219d000b6ebd8b5f2d4f9f27c9eb1e3d8a8422830891f&ipo=images",
+      "website": "www.edacy.com"
+    },
+    {
+      "school": "Talent 4 Startups Program",
+      "program": "Full-Stack Development",
+      "certificate": "Full-Stack Web Development",
+      "period": "2022",
+      "logo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.3zlr71oYjTbUx4fXcd1b8AHaD3%26pid%3DApi&f=1&ipt=cf06674159e0849627d2197da7d1b441c4e5ecd1d2b1afa3676d492af887236d&ipo=images",
+      "website": "talent4startups.digital-africa.co"
+    },
+    {
+      "school": "École Supérieure Multinationale des Télécommunications (ESMT)",
+      "location": "Dakar, Senegal",
+      "program": "Master of Digital Finance",
+      "period": "2020-2023",
+      "logo": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Id7J9im5LL0WJXXgB9ATSQHaFW%26pid%3DApi&f=1&ipt=fa21a84d6305dc45e75d05de75668edc2282d98f24635fcac79afa4f6880d7c9&ipo=images",
+      "website": "www.esmt.sn"
+    }
+  ]
+}

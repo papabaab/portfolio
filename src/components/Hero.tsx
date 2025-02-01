@@ -9,8 +9,7 @@ export const Hero: React.FC = () => {
           Software Developer
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-          Passionate about creating elegant solutions to complex problems. 
-          Specialized in full-stack development with a focus on scalable and maintainable applications.
+        💡 The most noble and fulfilling mindset is that of serving humanity. As we say at Virginia Tech: Ut Prosim (That I may serve). And one of my favorite ways of serving? It's Building high-quality software that makes life easier and solves real-world problems.
         </p>
         <div className="flex justify-center gap-4">
           <a
