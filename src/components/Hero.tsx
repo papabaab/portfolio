@@ -7,7 +7,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ isDark }) => {
-  const videoUrl = isDark ? '/src/assets/videobck.mp4' : '/src/assets/whitevid.mp4';
+  const videoUrl = isDark ? '/src/assets/darkvid.mp4' : '/src/assets/whitevid.mp4';
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ isDark }) => {
 
       {/* Content */}
       <div className="container relative z-10 mx-auto px-4 py-16 text-center ">
-        <div className="bg-white/30 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl dark:border-[.5px] dark:border-gray-500 p-8 shadow-lg">
+        <div className="bg-white/30 dark:bg-gray-900/10 backdrop-blur-sm rounded-2xl dark:border-[.5px] dark:border-gray-500 p-8 shadow-xl shadow-[#1699E5]/20 dark:shadow-white/10 transition-all duration-300">
           <h1 className="text-4xl md:text-6xl font-bold text-[#1699E5] dark:text-white mb-6">
             Hi, I'm Papa,<br/> 
             <span className="text-gray-900 dark:text-white">

@@ -14,7 +14,7 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
   return (
     <div className="flex justify-center">
       <header className="fixed top-4 sm:ml-4 md:ml-0 max-w-7xl z-50 left-[2vw] md:left-auto">
-        <div className="relative bg-white/80 dark:bg-gray-900/80 dark:border-[.5px] dark:border-gray-500 backdrop-blur-md rounded-2xl shadow-xl shadow-[#1699E5]/20 dark:shadow-white/10 transition-all duration-300">
+        <div className="relative bg-white/80 dark:bg-gray-900/10 dark:border-[.5px] dark:border-gray-500 backdrop-blur-md rounded-2xl shadow-xl shadow-[#1699E5]/20 dark:shadow-white/10 transition-all duration-300">
           <div className="container mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               {/* Left section */}
@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
           </div>
         </div>
       </header>
-      <div className="fixed top-4 right-[2vw] mx-auto px-6 py-4 bg-white/80 dark:border-[.5px] dark:border-gray-500 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-xl shadow-[#1699E5]/20 dark:shadow-white/10 transition-all duration-300 z-50">
+      <div className="fixed top-4 right-[2vw] mx-auto px-6 py-4 bg-white/80 dark:border-[.5px] dark:border-gray-500 dark:bg-gray-900/10 backdrop-blur-md rounded-2xl shadow-xl shadow-[#1699E5]/20 dark:shadow-white/10 transition-all duration-300 z-50">
         <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
       </div>
     </div>

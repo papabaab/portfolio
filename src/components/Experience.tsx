@@ -131,6 +131,7 @@ export const Experience: React.FC<ExperienceProps> = ({isDark}) => {
 
       {/* Overlay to improve content readability */}
       {isDark && <div className="absolute inset-0 bg-gray-900/80"></div>}
+      {/*  <a href="https://www.freepik.com/free-video/abstract-geometric-3d-structure_3544919#fromView=keyword&page=1&position=0&uuid=3abaed14-104d-4faf-80c0-3d290b072f09">Video by BaldasaridStock</a> */}
       <div className="container relative z-10 mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-black dark:text-white mb-4">WORK EXPERIENCE</h2>
