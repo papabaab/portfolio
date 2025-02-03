@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Swiper custom styles */
+.experience-swiper {
+  padding: 20px 50px !important;
+}
+
+.experience-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.experience-swiper .swiper-slide {
+  height: auto !important;
+  display: flex;
+}
+
+.experience-swiper .swiper-button-next,
+.experience-swiper .swiper-button-prev {
+  color: #1699E5;
+}
+
+.experience-swiper .swiper-pagination-bullet {
+  background: #1699E5;
+}
+
+.experience-swiper .swiper-pagination {
+  bottom: -10px !important;
+}
+
+/* Dark mode adjustments */
+.dark .experience-swiper .swiper-button-next,
+.dark .experience-swiper .swiper-button-prev {
+  color: #ffffff;
+}
+
+.dark .experience-swiper .swiper-pagination-bullet {
+  background: #ffffff;
+}

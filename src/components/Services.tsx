@@ -1,5 +1,7 @@
 import React from 'react';
 import { Code2, Server, GitBranch, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeInUpWithDelay } from '../animations/scroll-animations';
 
 const services = [
   {
@@ -35,9 +37,18 @@ export const Services: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center group hover:-translate-y-1 transform transition-transform"
+              variants={fadeInUpWithDelay(index)}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, margin: "-100px" }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 0 25px rgba(22, 153, 229, 0.5)',
+                transition: { duration: 0.2 }
+              }}
+              className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg transition-all duration-200 text-center cursor-pointer"
             >
               <div className="flex justify-center">
                 {service.icon}
@@ -48,7 +59,7 @@ export const Services: React.FC = () => {
               <p className="text-gray-600 dark:text-gray-300">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -8,8 +8,11 @@ import { Education } from './components/Education';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
+
+
 function App() {
   const [isDark, setIsDark] = useState(false);
+
 
   useEffect(() => {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -29,11 +32,11 @@ function App() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
       <Header isDark={isDark} toggleTheme={toggleTheme} />
-      <Hero />
+      <Hero isDark={isDark} />
       <Services />
       <Skills />
-      <Experience />
-      <Education />
+      <Experience isDark={isDark} />
+      {/* <Education /> */}
       <Contact />
       <Footer />
     </div>
