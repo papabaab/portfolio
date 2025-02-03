@@ -130,7 +130,7 @@ export const Experience: React.FC<ExperienceProps> = ({isDark}) => {
       </video>
 
       {/* Overlay to improve content readability */}
-      {/* {isDark && <div className="absolute inset-0 bg-gray-900/80"></div>} */}
+      {isDark && <div className="absolute inset-0 bg-gray-900/80"></div>}
       <div className="container relative z-10 mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-black dark:text-white mb-4">WORK EXPERIENCE</h2>
