@@ -1,56 +1,103 @@
 import React from 'react';
 import educationData from '../data/education.json';
 import { GraduationCap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-export const Education: React.FC = () => {
+interface EducationProps {
+  isDark: boolean;
+}
+
+export const Education: React.FC<EducationProps> = ({ isDark }) => {
+  const url = isDark ? '/src/assets/experienceDark.mp4' : '/src/assets/newwhitebg.mp4';
+
   return (
-    <section id="education" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">EDUCATION</h2>
-          <div className="w-24 h-1 bg-[#1699E5] mx-auto"></div>
-        </div>
+    <section id="education" className="relative min-h-screen flex items-center justify-center">
+      {/* Video Background */}
+      <video
+        key={url}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute w-full h-full object-cover"
+      >
+        <source src={url} type="video/mp4" />
+      </video>
 
-        <div className="space-y-8 max-w-4xl mx-auto">
+      {/* Overlay to improve content readability */}
+      {isDark && <div className="absolute inset-0 bg-gray-900/80"></div>}
+
+      <div className="container relative z-10 mx-auto px-4 py-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ 
+            opacity: 1, 
+            y: 0,
+            transition: {
+              duration: 0.5
+            }
+          }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-black dark:text-white mb-4">EDUCATION</h2>
+          <div className="w-24 h-1 bg-[#1699E5] mx-auto"></div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {educationData.education.map((edu, index) => (
-            <div key={index} className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="flex flex-col md:flex-row gap-6">
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  delay: index * 0.2 // Stagger the animations
+                }
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="bg-white/90 dark:bg-gray-900/90 p-6 rounded-lg shadow-xl shadow-[#1699E5]/20 dark:shadow-white/10 hover:shadow-2xl hover:shadow-[#1699E5]/40 dark:hover:shadow-white/20 transition-all duration-300 backdrop-blur-sm aspect-square flex flex-col"
+            >
+              <div className="flex-1 flex flex-col">
                 {/* Logo Section */}
-                <div className="flex-shrink-0">
+                <div className="mb-6 flex justify-center">
                   <a 
                     href={`https://${edu.website}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
+                    className="block w-32 h-32 relative"
                   >
                     {edu.logo ? (
                       <img 
                         src={edu.logo} 
                         alt={`${edu.school} logo`} 
-                        className="w-24 h-24 object-contain hover:opacity-80 transition-opacity"
+                        className="w-full h-full object-contain hover:opacity-80 transition-opacity"
                       />
                     ) : (
-                      <div className="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                        <GraduationCap className="w-12 h-12 text-[#1699E5]" />
+                      <div className="w-full h-full bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                        <GraduationCap className="w-16 h-16 text-[#1699E5]" />
                       </div>
                     )}
                   </a>
                 </div>
 
                 {/* Content Section */}
-                <div className="flex-grow">
+                <div className="text-center">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                     {edu.school}
                   </h3>
                   {edu.location && (
-                    <p className="text-gray-600 dark:text-gray-400 mb-1">
+                    <p className="text-gray-600 dark:text-gray-400 mb-2">
                       📍 {edu.location}
                     </p>
                   )}
-                  <p className="text-[#1699E5] font-semibold mb-1">
+                  <p className="text-[#1699E5] font-semibold mb-2">
                     {edu.program}
                   </p>
                   {edu.certificate && (
-                    <p className="text-gray-700 dark:text-gray-300 mb-1">
+                    <p className="text-gray-700 dark:text-gray-300 mb-2">
                       Certificate: {edu.certificate}
                     </p>
                   )}
@@ -59,7 +106,7 @@ export const Education: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

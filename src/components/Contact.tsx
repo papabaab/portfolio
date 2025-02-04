@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { MessageCircle, Send } from 'lucide-react';
+import { Send, Loader2 } from 'lucide-react';
+import emailjs from 'emailjs-com';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface FormData {
   email: string;
@@ -15,6 +18,7 @@ export const Contact: React.FC = () => {
     company: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,14 +28,65 @@ export const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+    setIsLoading(true);
+    
+    try {
+      const result = await emailjs.sendForm(
+        'service_9fn120w', 
+        'template_r5fqasp', 
+        e.target as HTMLFormElement, 
+        'ZSef922uUunYsrFm_'
+      );
+      
+      console.log('Email sent successfully!', result.text);
+      toast.success('Message sent successfully! I will get back to you soon.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      
+      setFormData({
+        email: '',
+        phone: '',
+        company: '',
+        message: ''
+      });
+    } catch (error: any) {
+      console.log('Failed to send email:', error.text);
+      toast.error('Failed to send message. Please try again later.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <section id="contact" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <div className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">GET IN TOUCH</h2>
@@ -104,23 +159,35 @@ export const Contact: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <button
                 type="submit"
-                className="w-full sm:w-auto px-6 py-3 bg-[#1699E5] hover:bg-[#1487cc] text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-colors duration-200"
+                disabled={isLoading}
+                className="w-full sm:w-auto px-6 py-3 bg-[#1699E5] hover:bg-[#1487cc] disabled:bg-[#1699E5]/50 disabled:cursor-not-allowed text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-colors duration-200"
               >
-                Send Message
-                <Send className="w-4 h-4" />
+                {isLoading ? (
+                  <>
+                    Sending...
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
               </button>
 
-              <a
+              
+            </div>
+          </form>
+          <a
                 href="https://wa.me/+221785215684"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3 bg-[#25D366] hover:bg-[#20bd59] text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-colors duration-200"
+                className="w-full mt-8 sm:w-auto px-6 py-3 bg-[#25D366] hover:bg-[#20bd59] text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-colors duration-200"
               >
                 Chat on WhatsApp
-                <MessageCircle className="w-4 h-4" />
+                {/* <MessageCircle className="w-4 h-4" /> */}
+                <img className='w-4 h-4' src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="" />
               </a>
-            </div>
-          </form>
         </div>
       </div>
     </section>

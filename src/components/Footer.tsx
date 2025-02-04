@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
               <li><a href="#services" className="hover:text-gray-300 transition-colors">Services</a></li>
               <li><a href="#skills" className="hover:text-gray-300 transition-colors">Skills</a></li>
               <li><a href="#portfolio" className="hover:text-gray-300 transition-colors">Portfolio</a></li>
-              <li><a href="#experience" className="hover:text-gray-300 transition-colors">Experience</a></li>
+              <li><a href="#education" className="hover:text-gray-300 transition-colors">Education</a></li>
               <li><a href="#contact" className="hover:text-gray-300 transition-colors">Contact</a></li>
             </ul>
           </div>

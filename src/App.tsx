@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { Skills } from './components/Skills';
-import { Experience } from './components/Experience';
+import { Portfolio } from './components/Portfolio';
 import { Education } from './components/Education';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -15,18 +15,17 @@ function App() {
 
 
   useEffect(() => {
+    // Check system preference on initial load
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setIsDark(true);
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
-  useEffect(() => {
-    if (isDark) document.documentElement.classList.add('dark');
-    else document.documentElement.classList.remove('dark');
-  }, [isDark]);
-
   const toggleTheme = () => {
     setIsDark(!isDark);
+    // Toggle the 'dark' class on the html element
+    document.documentElement.classList.toggle('dark');
   };
 
   return (
@@ -35,10 +34,11 @@ function App() {
       <Hero isDark={isDark} />
       <Services />
       <Skills />
-      <Experience isDark={isDark} />
-      {/* <Education /> */}
+      <Portfolio />
+      <Education isDark={isDark} />
       <Contact />
       <Footer />
+      <small className="fixed bottom-1  right-1 text-[7px] sm:text-xs text-gray-500 dark:text-gray-400">built with React.Js & Tailwind CSS @papabaab</small>
     </div>
   );
 }

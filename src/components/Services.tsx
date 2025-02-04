@@ -12,7 +12,7 @@ const services = [
   {
     icon: <Server className="w-12 h-12 text-[#1699E5] mb-4" />,
     title: "Backend App Development",
-    description: "Building robust server-side applications with Node.js, Express, and various databases to power scalable web solutions."
+    description: "Building robust server-side applications with Node.js, Express, Nest.js and various databases to power scalable web solutions."
   },
   {
     icon: <GitBranch className="w-12 h-12 text-[#1699E5] mb-4" />,

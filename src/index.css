@@ -3,38 +3,53 @@
 @tailwind utilities;
 
 /* Swiper custom styles */
-.experience-swiper {
+.portfolio-swiper {
   padding: 20px 50px !important;
+  width: 100% !important;
 }
 
-.experience-swiper .swiper-wrapper {
+.portfolio-swiper .swiper-wrapper {
   align-items: stretch;
+  width: 100% !important;
 }
 
-.experience-swiper .swiper-slide {
+.portfolio-swiper .swiper-slide {
   height: auto !important;
+  width: 100% !important;
   display: flex;
 }
 
-.experience-swiper .swiper-button-next,
-.experience-swiper .swiper-button-prev {
+.portfolio-swiper .swiper-slide > div {
+  width: 100%;
+}
+
+.portfolio-swiper .swiper-button-next,
+.portfolio-swiper .swiper-button-prev {
   color: #1699E5;
 }
 
-.experience-swiper .swiper-pagination-bullet {
+.portfolio-swiper .swiper-pagination-bullet {
   background: #1699E5;
 }
 
-.experience-swiper .swiper-pagination {
-  bottom: -10px !important;
+.portfolio-swiper .swiper-pagination {
+  bottom: 0 !important;
 }
 
 /* Dark mode adjustments */
-.dark .experience-swiper .swiper-button-next,
-.dark .experience-swiper .swiper-button-prev {
+.dark .portfolio-swiper .swiper-button-next,
+.dark .portfolio-swiper .swiper-button-prev {
   color: #ffffff;
 }
 
-.dark .experience-swiper .swiper-pagination-bullet {
+.dark .portfolio-swiper .swiper-pagination-bullet {
   background: #ffffff;
+}
+
+*{
+  
+  font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }

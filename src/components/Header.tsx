@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
               {/* Right section */}
               <nav className="hidden md:flex items-center space-x-6">
                 <a onClick={(e) => handleClick(e, 'portfolio')} href="#portfolio" className={linkStyles}>Portfolio</a>
-                <a onClick={(e) => handleClick(e, 'experience')} href="#experience" className={linkStyles}>Experience</a>
+                <a onClick={(e) => handleClick(e, 'education')} href="#education" className={linkStyles}>Education</a>
                 <a onClick={(e) => handleClick(e, 'contact')} href="#contact" className={linkStyles}>Contact</a>
               </nav>
             </div>
