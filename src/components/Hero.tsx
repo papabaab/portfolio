@@ -8,7 +8,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ isDark }) => {
-  const videoUrl = isDark ? '/src/assets/darkvid.mp4' : '/src/assets/whitevid.mp4';
+  const videoUrl = isDark ? '/assets/darkvid.mp4' : '/assets/whitevid.mp4';
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">

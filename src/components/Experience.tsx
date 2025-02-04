@@ -114,7 +114,7 @@ const ExperienceCard: React.FC<{ exp: ExperienceItem }> = ({ exp }) => (
 );
 
 export const Experience: React.FC<ExperienceProps> = ({isDark}) => {
-  const  url = isDark ? '/src/assets/experienceDark.mp4' : '/src/assets/newwhitebg.mp4';
+  const  url = isDark ? '/assets/experienceDark.mp4' : '/assets/newwhitebg.mp4';
   return (
     <section id="experience" className="relative min-h-screen flex items-center justify-center">
       {/* Video Background */}

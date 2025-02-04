@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
               <a href="#home" onClick={(e) => handleClick(e, 'home')}>
               <div className="flex items-center space-x-2 px-1 group" >
                 <img 
-                  src={isDark ? "/src/assets/je-noir-blanc.png" : "/src/assets/je-blanc-noir.png"} 
+                  src={isDark ? "/assets/je-noir-blanc.png" : "/assets/je-blanc-noir.png"} 
                   alt="Logo" 
                   className="max-w-10 h-10 transition-transform duration-300 group-hover:scale-[2] group-hover:shadow-[#1699E5] group-hover:shadow-md rounded-[50%] cursor-pointer"
                 />
