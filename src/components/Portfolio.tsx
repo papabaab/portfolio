@@ -85,8 +85,8 @@ const PortfolioCard: React.FC<{ item: PortfolioItem }> = ({ item }) => (
               className="transition-transform hover:scale-105"
             >
               <img 
-                src="https://iveez.com/assets/images/googleplay.png" 
-                alt="Get it on Google Play" 
+                src="/assets/download-playstore.png" 
+                alt="Download on Play Store" 
                 className="h-12"
               />
             </a>
@@ -99,7 +99,7 @@ const PortfolioCard: React.FC<{ item: PortfolioItem }> = ({ item }) => (
               className="transition-transform hover:scale-105"
             >
               <img 
-                src="https://iveez.com/assets/images/appstore.png" 
+                src="/assets/download-app-store.png" 
                 alt="Download on the App Store" 
                 className="h-12"
               />

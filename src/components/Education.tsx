@@ -8,7 +8,9 @@ interface EducationProps {
 }
 
 export const Education: React.FC<EducationProps> = ({ isDark }) => {
-  const url = isDark ? '/assets/experienceDark.mp4' : '/assets/newwhitebg.mp4';
+  const url = isDark ? 
+  'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/experienceDark-CVdQjs1efo09merz9ioRpDU6MJMzqo.mp4' :
+  'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/newwhitebg-n90D8unXkXrFbHh0BRm5yg9QeanRh0.mp4';
 
   return (
     <section id="education" className="relative min-h-screen flex items-center justify-center">

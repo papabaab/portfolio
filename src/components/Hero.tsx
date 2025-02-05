@@ -11,7 +11,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ isDark }) => {
   const [isLoading, setIsLoading] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const videoUrl = isDark ? '/assets/darkvid.mp4' : '/assets/whitevid.mp4';
+  const videoUrl = isDark ? 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/darkvid-aeSGX8RVUs7H2Bxk8NpEnxvG3J1IIs.mp4' : 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/whitevid-LPLLMVHmlGIXhiLt6R9y8yV7ZGn8LE.mp4';
 
   useEffect(() => {
     setIsLoading(true);
@@ -71,7 +71,7 @@ export const Hero: React.FC<HeroProps> = ({ isDark }) => {
               </span>
             </h1>
             <p className="text-sm text-gray-900 dark:text-gray-200 mb-8 max-w-2xl mx-auto">
-              �� The most noble and fulfilling mindset is that of serving humanity. As we say at Virginia Tech: Ut Prosim (That I may serve). And one of my favorite ways of serving? It's Building high-quality software that makes life easier and solves real-world problems. Scroll down to learn more about me! 😎.
+              The most noble and fulfilling mindset is that of serving humanity. As we say at Virginia Tech: Ut Prosim (That I may serve). And one of my favorite ways of serving? It's Building high-quality software that makes life easier and solves real-world problems. Scroll down to learn more about me! 😎.
               <br/>Got a project? Contact me and let's discuss it. I'm lookinng forward to hearing from you.
               <br/>
             </p>
