@@ -9,13 +9,25 @@ import 'swiper/css/autoplay';
 interface PortfolioItem {
   title: string;
   website?: string;
-  displayImage: string;
+  displayImage?: string;
+  displayVideo?: string;
   description: string[];
   appStoreLink?: string;
   playStoreLink?: string;
 }
 
 const portfolioItems: PortfolioItem[] = [
+  {
+    title: "Taxibokko",
+    displayVideo: "https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/Taxibokko%20Demo-NHO3nKJ5GgTQuHOUDSCPnLuey8hRdi.mp4",
+    description: [
+      "Co-founder and Lead Developer",
+      "Development project for a car-sharing application called Taxibokko",
+      "FIGMA for UI/UX Design",
+      "Integration of Google API",
+      "Front & Back End development utilizing Ionic-angular, nodeJs, and Firebase"
+    ]
+  },
   {
     title: "Microfinance Digitale",
     website: "https://microfinance-digitale-codecrafter-oytr2c9lg.vercel.app/home",
@@ -63,14 +75,27 @@ const portfolioItems: PortfolioItem[] = [
 
 const PortfolioCard: React.FC<{ item: PortfolioItem }> = ({ item }) => (
   <div className="w-full flex flex-col lg:flex-row gap-8 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg h-full min-h-[600px]">
-    {/* Left section with main image */}
+    {/* Left section with main image or video */}
     <div className="lg:w-1/2 flex flex-col items-center justify-center">
       <div className="w-full h-[400px] relative mb-4">
-        <img 
-          src={item.displayImage} 
-          alt={item.title} 
-          className="w-full h-full object-contain rounded-lg"
-        />
+        {item.displayVideo ? (
+          <video 
+            src={item.displayVideo} 
+            autoPlay
+            playsInline
+            muted
+            loop
+            preload="auto"
+            webkit-playsinline="true"
+            className="w-full h-full object-contain rounded-lg"
+          />
+        ) : (
+          <img 
+            src={item.displayImage} 
+            alt={item.title} 
+            className="w-full h-full object-contain rounded-lg"
+          />
+        )}
       </div>
       
       {/* Conditional rendering based on whether it's Iveez or other projects */}
@@ -138,11 +163,21 @@ const PortfolioCard: React.FC<{ item: PortfolioItem }> = ({ item }) => (
     
     {/* Right section with content */}
     <div className="lg:w-1/2">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{item.title}</h3>
+      <h3 className="text-2xl font-bold text-gray-900 text-center dark:text-white mb-4">{item.title}</h3>
       
       {/* Technologies Icons */}
       <div className="mb-6">
         <div className="flex flex-wrap gap-4 justify-center mb-4">
+          {item.title === "Taxibokko" && (
+            <>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg" alt="Ionic" className="w-10 h-10 object-contain hover:scale-110 transition-transform" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" alt="Angular" className="w-10 h-10 object-contain hover:scale-110 transition-transform" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js" className="w-10 h-10 object-contain hover:scale-110 transition-transform" />
+              <img src="https://www.shareicon.net/data/2016/07/08/117547_developer_512x512.png" alt="Firebase" className="w-10 h-10 object-contain hover:scale-110 transition-transform" />
+              <img src="https://www.gstatic.com/images/branding/product/2x/maps_96dp.png" alt="Google Maps" className="w-10 h-10 object-contain hover:scale-110 transition-transform" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" className="w-10 h-10 object-contain hover:scale-110 transition-transform" />
+            </>
+          )}
           {item.title === "Microfinance Digitale" && (
             <>
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" alt="Angular" className="w-10 h-10 object-contain hover:scale-110 transition-transform" />
