@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -114,17 +114,61 @@ const ExperienceCard: React.FC<{ exp: ExperienceItem }> = ({ exp }) => (
 );
 
 export const Experience: React.FC<ExperienceProps> = ({isDark}) => {
-  const  url = isDark ? 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/experienceDark-CVdQjs1efo09merz9ioRpDU6MJMzqo.mp4' : '/assets/newwhitebg.mp4';
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const url = isDark ? 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/experienceDark-CVdQjs1efo09merz9ioRpDU6MJMzqo.mp4' : '/assets/newwhitebg.mp4';
+
+  const playVideo = async (video: HTMLVideoElement) => {
+    try {
+      await video.play();
+    } catch (error) {
+      console.log('Video play failed, trying again on user interaction', error);
+
+      const playOnInteraction = async () => {
+        try {
+          await video.play();
+          document.removeEventListener('touchstart', playOnInteraction);
+          document.removeEventListener('click', playOnInteraction);
+        } catch (error) {
+          console.log('Video play failed on interaction',  error);
+        }
+      };
+
+      document.addEventListener('touchstart', playOnInteraction);
+      document.addEventListener('click', playOnInteraction);
+    }
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+
+      const handleLoadedData = () => {
+        playVideo(video);
+      };
+
+      video.addEventListener('loadeddata', handleLoadedData);
+      video.load();
+
+      return () => {
+        video.removeEventListener('loadeddata', handleLoadedData);
+      };
+    }
+  }, [url]);
+
   return (
     <section id="experience" className="relative min-h-screen flex items-center justify-center">
-      {/* Video Background */}
       <video
+        ref={videoRef}
         key={url}
         autoPlay
-        loop
-        muted
         playsInline
+        muted
+        loop
+        preload="auto"
         className="absolute w-full h-full object-cover"
+        webkit-playsinline="true"
       >
         <source src={url} type="video/mp4" />
       </video>

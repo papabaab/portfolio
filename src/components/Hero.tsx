@@ -13,23 +13,52 @@ export const Hero: React.FC<HeroProps> = ({ isDark }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoUrl = isDark ? 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/darkvid-aeSGX8RVUs7H2Bxk8NpEnxvG3J1IIs.mp4' : 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/whitevid-LPLLMVHmlGIXhiLt6R9y8yV7ZGn8LE.mp4';
 
+  const playVideo = async (video: HTMLVideoElement) => {
+    try {
+      await video.play();
+    } catch (error) {
+      // If autoplay fails, we'll try again on user interaction
+      console.log('Video play failed, trying again on user interaction', error);
+
+      const playOnInteraction = async () => {
+        try {
+          await video.play();
+          // Remove the event listeners once the video plays successfully
+          document.removeEventListener('touchstart', playOnInteraction);
+          document.removeEventListener('click', playOnInteraction);
+        } catch (error) {
+          console.log('Video play failed on interaction', error);
+        }
+      };
+
+      document.addEventListener('touchstart', playOnInteraction);
+      document.addEventListener('click', playOnInteraction);
+    }
+  };
+
   useEffect(() => {
     setIsLoading(true);
     
-    const handleLoadedData = () => {
-      setIsLoading(false);
-    };
-
     const video = videoRef.current;
     if (video) {
-      video.addEventListener('loadeddata', handleLoadedData);
-    }
+      // Reset the video
+      video.pause();
+      video.currentTime = 0;
+      
+      const handleLoadedData = () => {
+        setIsLoading(false);
+        playVideo(video);
+      };
 
-    return () => {
-      if (video) {
+      video.addEventListener('loadeddata', handleLoadedData);
+
+      // Load the video
+      video.load();
+
+      return () => {
         video.removeEventListener('loadeddata', handleLoadedData);
-      }
-    };
+      };
+    }
   }, [videoUrl]);
 
   return (
@@ -41,10 +70,12 @@ export const Hero: React.FC<HeroProps> = ({ isDark }) => {
           ref={videoRef}
           key={videoUrl}
           autoPlay
-          loop
-          muted
           playsInline
+          muted
+          loop
+          preload="auto"
           className="absolute w-full h-full object-cover"
+          webkit-playsinline="true" // For older iOS versions
         >
           <source src={videoUrl} type="video/mp4" />
         </video>
