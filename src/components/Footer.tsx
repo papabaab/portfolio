@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">About Me</h3>
             <p className="text-gray-100">
-              Full-stack developer passionate about creating elegant solutions to complex problems.
+              Full-stack developer passionate about creating elegant solutions to complex problems. I am because we are! <br/> Je.
             </p>
           </div>
 
@@ -48,7 +48,8 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="hover:text-gray-300 transition-colors"
               >
-                <Linkedin className="w-6 h-6" />
+                {/* <Linkedin className="w-6 h-6" /> */}
+                <img className='w-6 h-6' src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/1200px-LinkedIn_logo_initials.png" alt="" />
               </a>
               <a 
                 href="https://instagram.com/papabaab" 
@@ -56,7 +57,8 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="hover:text-gray-300 transition-colors"
               >
-                <InstagramIcon className="w-6 h-6" />
+                {/* <InstagramIcon className="w-6 h-6" /> */}
+                <img className='w-6 h-6' src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png" alt="" />
               </a>
               <a 
                 href="https://github.com/papabaab" 
@@ -64,7 +66,17 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="hover:text-gray-300 transition-colors"
               >
-                <GithubIcon className="w-6 h-6" />
+                {/* <GithubIcon className="w-6 h-6" /> */}
+                <img className='w-6 h-6' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.icon-icons.com%2Ficons2%2F836%2FPNG%2F512%2FGithub_icon-icons.com_66788.png&f=1&nofb=1&ipt=f6c0dc26834b30c87dfd997679429d992cff4f76526efaf6583db978154ed334&ipo=images" alt="" />
+              </a>
+              <a 
+                href="https://youtube.com/@papabaab" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors"
+              >
+                {/* <GithubIcon className="w-6 h-6" /> */}
+                <img className='w-6 h-6' src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1200px-YouTube_full-color_icon_%282017%29.svg.png" alt="" />
               </a>
             </div>
           </div>
