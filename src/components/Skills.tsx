@@ -6,7 +6,7 @@ const programmingSkills = [
   {
     name: "JavaScript",
     logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-    proficiency: 95
+    proficiency: 90
   },
   {
     name: "TypeScript",
@@ -26,12 +26,17 @@ const programmingSkills = [
   {
     name: "Java",
     logo: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
-    proficiency: 85
+    proficiency: 45
   },
   {
     name: "Node.js",
     logo: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
-    proficiency: 90
+    proficiency: 75
+  },
+  {
+    name: "GraphQL",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/1/17/GraphQL_Logo.svg",
+    proficiency: 70
   }
 ];
 
@@ -44,22 +49,22 @@ const frameworksSkills = [
   {
     name: "React",
     logo: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-    proficiency: 90
+    proficiency: 80
   },
   {
     name: "Ionic",
     logo: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg",
-    proficiency: 90
+    proficiency: 97
   },
   {
     name: "Nest.js",
     logo: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic-00.iconduck.com%2Fassets.00%2Fnestjs-icon-2048x2040-3rrvcej8.png&f=1&nofb=1&ipt=61dd0e48c653ddf3a429755d9ee032d62cea51821633f5c487116b6d69ba88aa&ipo=images",
-    proficiency: 85
+    proficiency: 75
   },
   {
     name: "Express.js",
     logo: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhackersandslackers-cdn.storage.googleapis.com%2F2020%2F05%2Fexpress.png&f=1&nofb=1&ipt=d8a661f9bd921abc445d833e221fe7ba0f369dbf42c5e0acd81941a3d576b47a&ipo=images",
-    proficiency: 90
+    proficiency: 75
   }
 ];
 
@@ -67,7 +72,7 @@ const toolsSkills = [
   {
     name: "Docker",
     logo: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fv2%2Fresize%3Afit%3A616%2F1*1sVrbiOmejvXVikqenKgFw.png&f=1&nofb=1&ipt=f551d021cf7ff59329b379eff4d64d8c3f9d58af6f6a7af95fc87d537513b1e3&ipo=images",
-    proficiency: 80
+    proficiency: 70
   },
   {
     name: "Git",
@@ -82,17 +87,17 @@ const toolsSkills = [
   {
     name: "Postman",
     logo: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png",
-    proficiency: 90
+    proficiency: 75
   },
   {
     name: "Android Studio",
     logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Android_logo_2019.png",
-    proficiency: 85
+    proficiency: 80
   },
   {
     name: "Xcode",
     logo: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.jim-nielsen.com%2Fmacos%2F1024%2Fxcode-2020-11-11.png&f=1&nofb=1&ipt=a2f8784e39958615fe09c107f87eae83ca770a9f2004333f0781b0b1af4d813c&ipo=images",
-    proficiency: 80
+    proficiency: 75
   }
 ];
 
@@ -100,12 +105,12 @@ const databasesSkills = [
   {
     name: "MongoDB",
     logo: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F1200%2F1*DiNIG4Bfpm65_wwXf_JwMA.png&f=1&nofb=1&ipt=ffd6bf1a6422be22c40e379904c3bc27a9aeecd248ccd64b88cd73d0379c73d3&ipo=images",
-    proficiency: 85
+    proficiency: 75
   },
   {
     name: "MySQL",
     logo: "https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg",
-    proficiency: 85
+    proficiency: 75
   },
   {
     name: "Firebase",
@@ -133,12 +138,12 @@ const softSkills = [
   {
     icon: <Scale className="w-8 h-8 text-[#1699E5]" />,
     name: "Pragmatism",
-    proficiency: 90
+    proficiency: 95
   },
   {
     icon: <Ear className="w-8 h-8 text-[#1699E5]" />,
     name: "Empathic Listener",
-    proficiency: 85
+    proficiency: 98
   },
   {
     icon: <LineChart className="w-8 h-8 text-[#1699E5]" />,
