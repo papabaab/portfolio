@@ -1,0 +1,9 @@
+{
+    "redirects": [
+      {
+        "source": "/*",
+        "destination": "https://papabaab-portfolio-ea328.web.app/",
+        "permanent": true
+      }
+    ]
+  }
