@@ -11,7 +11,7 @@ interface PortfolioItem {
   website?: string;
   displayImage?: string;
   displayVideo?: string;
-  description: string[];
+  description: string[];ap
   appStoreLink?: string;
   playStoreLink?: string;
 }

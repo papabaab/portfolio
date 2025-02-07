@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ isDark }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoUrl = isDark ? 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/darkvid-aeSGX8RVUs7H2Bxk8NpEnxvG3J1IIs.mp4' : 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/whitevid-LPLLMVHmlGIXhiLt6R9y8yV7ZGn8LE.mp4';
 
@@ -17,13 +17,11 @@ export const Hero: React.FC<HeroProps> = ({ isDark }) => {
     try {
       await video.play();
     } catch (error) {
-      // If autoplay fails, we'll try again on user interaction
       console.log('Video play failed, trying again on user interaction', error);
 
       const playOnInteraction = async () => {
         try {
           await video.play();
-          // Remove the event listeners once the video plays successfully
           document.removeEventListener('touchstart', playOnInteraction);
           document.removeEventListener('click', playOnInteraction);
         } catch (error) {
@@ -37,11 +35,9 @@ export const Hero: React.FC<HeroProps> = ({ isDark }) => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    
     const video = videoRef.current;
     if (video) {
-      // Reset the video
+      setIsLoading(true);
       video.pause();
       video.currentTime = 0;
       
@@ -50,13 +46,35 @@ export const Hero: React.FC<HeroProps> = ({ isDark }) => {
         playVideo(video);
       };
 
-      video.addEventListener('loadeddata', handleLoadedData);
+      const handleError = () => {
+        console.log('Video failed to load');
+        setIsLoading(false);
+      };
 
-      // Load the video
+      const handleLoadStart = () => {
+        // Check network state after a brief delay to allow for initial connection
+        setTimeout(() => {
+          if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE || 
+              video.networkState === HTMLMediaElement.HAVE_NOTHING) {
+            console.log('Network error or no source available');
+            setIsLoading(false);
+          }
+        }, 1000);
+      };
+
+      video.addEventListener('loadstart', handleLoadStart);
+      video.addEventListener('loadeddata', handleLoadedData);
+      video.addEventListener('error', handleError);
+      video.addEventListener('abort', handleError);
+
+      // Start loading the video
       video.load();
 
       return () => {
+        video.removeEventListener('loadstart', handleLoadStart);
         video.removeEventListener('loadeddata', handleLoadedData);
+        video.removeEventListener('error', handleError);
+        video.removeEventListener('abort', handleError);
       };
     }
   }, [videoUrl]);
