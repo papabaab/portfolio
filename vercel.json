@@ -1,9 +1,14 @@
 {
     "redirects": [
-      {
-        "source": "/*",
-        "destination": "https://papabaab-portfolio-ea328.web.app/",
-        "permanent": true
-      }
+        {
+            "source": "/",
+            "destination": "https://papabaab-portfolio-ea328.web.app",
+            "permanent": true
+          },
+          {
+            "source": "/:path*",
+            "destination": "https://papabaab-portfolio-ea328.web.app/:path*",
+            "permanent": true
+          }
     ]
   }
