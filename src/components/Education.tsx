@@ -10,8 +10,8 @@ interface EducationProps {
 export const Education: React.FC<EducationProps> = ({ isDark }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const url = isDark ? 
-    'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/experienceDark-CVdQjs1efo09merz9ioRpDU6MJMzqo.mp4' :
-    'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/newwhitebg-n90D8unXkXrFbHh0BRm5yg9QeanRh0.mp4';
+    '/assets/experienceDark.mp4' :
+    '/assets/newwhitebg.mp4';
 
   const playVideo = async (video: HTMLVideoElement) => {
     try {

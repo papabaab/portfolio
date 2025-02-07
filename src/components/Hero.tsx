@@ -11,10 +11,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ isDark }) => {
   const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  // const videoUrl = isDark ? 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/darkvid-aeSGX8RVUs7H2Bxk8NpEnxvG3J1IIs.mp4' : 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/whitevid-LPLLMVHmlGIXhiLt6R9y8yV7ZGn8LE.mp4';
   const videoUrl = isDark ? '/assets/darkvid.mp4' : '/assets/whitevid.mp4';
-  // https://drive.google.com/file/d/13D575v-f3tSXGbCejiGD-08CewhK5sw8/view?usp=drive_link 
-  // https://drive.google.com/uc?export=download&id=13D575v-f3tSXGbCejiGD-08CewhK5sw8
   const playVideo = async (video: HTMLVideoElement) => {
     try {
       await video.play();

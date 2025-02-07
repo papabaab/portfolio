@@ -115,7 +115,7 @@ const ExperienceCard: React.FC<{ exp: ExperienceItem }> = ({ exp }) => (
 
 export const Experience: React.FC<ExperienceProps> = ({isDark}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const url = isDark ? 'https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/experienceDark-CVdQjs1efo09merz9ioRpDU6MJMzqo.mp4' : '/assets/newwhitebg.mp4';
+  const url = isDark ? '/assets/experienceDark.mp4' : '/assets/newwhitebg.mp4';
 
   const playVideo = async (video: HTMLVideoElement) => {
     try {

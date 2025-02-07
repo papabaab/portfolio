@@ -11,7 +11,7 @@ interface PortfolioItem {
   website?: string;
   displayImage?: string;
   displayVideo?: string;
-  description: string[];ap
+  description: string[];
   appStoreLink?: string;
   playStoreLink?: string;
 }
@@ -19,7 +19,7 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     title: "Taxibokko",
-    displayVideo: "https://w9fm7lberulf8kgk.public.blob.vercel-storage.com/Taxibokko%20Demo-NHO3nKJ5GgTQuHOUDSCPnLuey8hRdi.mp4",
+    displayVideo: "/assets/taxibokko.mp4",
     description: [
       "Co-founder and Lead Developer",
       "Development project for a car-sharing application called Taxibokko",
