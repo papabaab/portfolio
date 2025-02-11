@@ -64,7 +64,7 @@ const PortfolioCard: React.FC<{ item: PortfolioItem }> = ({ item }) => {
                 alt={item.title} 
                 loading="lazy"
                 onLoad={() => setImageLoaded(true)}
-                className={`w-full h-full object-contain rounded-lg transition-opacity duration-300 ${
+                className={`w-auto h-full m-auto rounded-lg transition-opacity duration-300 ${
                   imageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
               />
